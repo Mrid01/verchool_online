@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>500 - Unexpected Situation</title>
+    <style>
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+      body {
+        font-family: "Georgia", serif;
+        background-image: url("https://verchool-image-bucket.s3.amazonaws.com/verchool.online/imageedit_5_8624774721.jpg"); /* Replace with your background image */
+        background-size: cover;
+        background-position: center;
+        color: #fffefe;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .logo {
+        width: 200px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        font-family: "Arial", sans-serif;
+        color: #b70505; 
+        text-shadow: 1px 1px 1px rgb(144, 8, 8);
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 1.6em;
+        color: rgb(1, 1, 28);
+        text-shadow: 1px 1px 1px rgb(20, 1, 1);
+        margin-bottom: 25px;
+      }
+
+      .btn-hover {
+        width: 200px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #fff;
+        cursor: pointer;
+        margin: 20px;
+        height: 55px;
+        text-align: center;
+        border: none;
+        background-size: 300% 100%;
+
+        border-radius: 50px;
+        moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+      }
+
+      .btn-hover:hover {
+        background-position: 100% 0;
+        moz-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        -webkit-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+      }
+
+      .btn-hover:focus {
+        outline: none;
+      }
+
+      .btn-hover.color-1 {
+        background-image: linear-gradient(
+          to right,
+          #009245,
+          #d7cb19,
+          #00a8c5,
+          #c2c81b
+        );
+        box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+      }
+      .btn-hover.color-2 {
+        background-image: linear-gradient(
+          to right,
+          #f5ce62,
+          #e43603,
+          #fa7199,
+          #e85a19
+        );
+        box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+      }
+      .btn-hover.color-3 {
+        background-image: linear-gradient(
+          to right,
+          #6253e1,
+          #852d91,
+          #a3a1ff,
+          #f24645
+        );
+        box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+      }
+    </style>
+  </head>
+  <body>
+    <img
+      class="logo"
+      src="https://verchool.com/wp-content/uploads/2023/07/Image_6-1024x726.png"
+      alt="Company Logo"
+    />
+    <h1>502 - Internal Issue</h1>
+    <p>
+      Expected boardroom seats are already in use. <br />Please check again with
+      the host or request a new admission.
+    </p>
+    <div class="buttons">
+      <button class="btn-hover color-1" href="/">Home</button>
+      <button class="btn-hover color-2" href="/">Boardoom Guide</button>
+      <button class="btn-hover color-3" onclick="requestAdmission()">
+        Request Entry
+      </button>
+    </div>
+    <script>
+      function requestAdmission() {
+        var user_input = prompt("Enter your admission request (max 15):");
+        // You can add logic to handle the user input, e.g., make an API call
+        // and provide feedback to the user
+        alert("Your admission request has been submitted. Thank you!");
+      }
+    </script>
+  </body>
+</html>
