@@ -66,7 +66,7 @@
 
       /* Hero section styles */
       .hero {
-        background-image: url("https://wallpaperaccess.com/full/1398314.jpg"); /* Replace with your background image */
+        background-image: url('https://wallpaperaccess.com/full/1398314.jpg'); /* Replace with your background image */
         background-size: cover;
         background-position: center;
         height: 100vh;
@@ -130,7 +130,7 @@
 
       /* Services section styles */
       .services {
-        background-image: url("https://history-computer.com/wp-content/uploads/2022/05/metaverse-vs-virtual-reality.jpg"); /* Replace with your background image */
+        background-image: url('https://history-computer.com/wp-content/uploads/2022/05/metaverse-vs-virtual-reality.jpg'); /* Replace with your background image */
         background-size: cover;
         background-position: center;
         height: 100vh;
@@ -341,43 +341,79 @@
     </footer>
 
     <script>
+      // function myFunction() {
+      //   // Display loading indicator
+      //   //document.getElementById("loadingIndicator").style.display = "block";
+
+      //   // // Trigger the Lambda function
+      //   fetch('https://redirect.verchool.online/SSMTest', {
+      //     method: 'GET', // or "GET" based on your API Gateway configuration
+      //   })
+      //     .then((response) => response.json())
+      //     .then((data) => {
+      //       //     // Hide loading indicator
+      //       document.getElementById('loadingIndicator').style.display = 'none';
+
+      //       //     // Handle the JSON response
+      //       if (data && data.newURL) {
+      //         //     //   // Log the new URL
+      //         console.log('New URL:', data.newURL);
+
+      //         console.log(data);
+
+      //         //     //   // Redirect the user after a delay of 5 seconds
+      //         setTimeout(function () {
+      //           location.href = data.newURL;
+      //         }, 3000);
+      //       } else {
+      //         console.error('Invalid or missing newURL in the response');
+      //       }
+      //       // location.replace("https://redirect.verchool.online/SSMTest");
+      //     })
+
+      //     .catch((error) => {
+      //       //     // Handle any errors
+      //       console.error('Error fetching data:', error);
+      //       document.getElementById('loadingIndicator').style.display = 'none';
+      //     });
+      // }
+
       function myFunction() {
-        // Display loading indicator
-        //document.getElementById("loadingIndicator").style.display = "block";
+        // document.getElementById('loadingIndicator').style.display = 'block';
 
-        // // Trigger the Lambda function
-        fetch("https://redirect.verchool.online/SSMTest", {
-          method: "GET", // or "GET" based on your API Gateway configuration
+        fetch('https://redirect.verchool.online/SSMTest', {
+          method: 'GET',
+          mode: 'cors',
+          headers: {
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+            Pragma: 'no-cache',
+            Expires: 0,
+          },
         })
-          .then((response) => response.json())
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
           .then((data) => {
-            //     // Hide loading indicator
-            document.getElementById("loadingIndicator").style.display = "none";
+            // document.getElementById('loadingIndicator').style.display = 'none';
 
-            //     // Handle the JSON response
             if (data && data.newURL) {
-              //     //   // Log the new URL
-              console.log("New URL:", data.newURL);
-              
+              console.log('New URL:', data.newURL);
               console.log(data);
 
-              //     //   // Redirect the user after a delay of 5 seconds
               setTimeout(function () {
-
-
-                location.href=data.newURL;
+                // location.href = data.newURL;
+                location.href = data.newURL;
               }, 3000);
-
             } else {
-              console.error("Invalid or missing newURL in the response");
+              console.error('Invalid or missing newURL in the response');
             }
-            // location.replace("https://redirect.verchool.online/SSMTest");
           })
-
           .catch((error) => {
-            //     // Handle any errors
-            console.error("Error fetching data:", error);
-            document.getElementById("loadingIndicator").style.display = "none";
+            console.error('Error fetching data:', error);
+            document.getElementById('loadingIndicator').style.display = 'none';
           });
       }
     </script>
