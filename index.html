@@ -1,326 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Verchool - Shaping the Future</title>
     <style>
-        /* Reset some default styles */
-        body, h1, h2, h3, p {
-            margin: 0;
-            padding: 0;
-        }
+      /* Reset some default styles */
+      body,
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+        padding: 0;
+      }
 
-        /* Define global styles */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000000; /* Dark background color */
-            color: #fff; /* Text color */
-        }
+      /* Define global styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #000000; /* Dark background color */
+        color: #fff; /* Text color */
+      }
 
-        /* Header styles */
-        header {
-            background-color: transparent;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 999;
-        }
+      /* Header styles */
+      header {
+        background-color: transparent;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+      }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+      }
 
-        .logo h1 {
-            font-size: 32px;
-            color: #44ff00; /* Futuristic green color */
-        }
+      .logo h1 {
+        font-size: 32px;
+        color: #44ff00; /* Futuristic green color */
+      }
 
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 0 20px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #44ff00;
+      }
+
+      /* Hero section styles */
+      .hero {
+        background-image: url("https://wallpaperaccess.com/full/1398314.jpg"); /* Replace with your background image */
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 800px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 18px;
+        margin-bottom: 40px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #20eb1cc2;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .cta-button:hover {
+        background-color: #33cc00; /* Slightly darker green on hover */
+      }
+
+      /* About section styles */
+      .about {
+        background-color: #0b0b1ac9; /* Dark background color */
+        padding: 80px 0;
+      }
+
+      .about-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .about h2 {
+        font-size: 36px;
+        color: #44ff00;
+        margin-bottom: 20px;
+      }
+
+      .about p {
+        font-size: 18px;
+        color: #fff;
+      }
+
+      /* Services section styles */
+      .services {
+        background-image: url("https://history-computer.com/wp-content/uploads/2022/05/metaverse-vs-virtual-reality.jpg"); /* Replace with your background image */
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #181a2e;
+        padding: 80px 0;
+      }
+
+      .services-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+
+      .service-card {
+        background-color: #222;
+        padding: 30px;
+        border-radius: 10px;
+        margin: 20px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: scale(1.05);
+      }
+
+      .service-card h3 {
+        font-size: 24px;
+        color: #44ff00;
+        margin-bottom: 10px;
+      }
+
+      .service-card p {
+        font-size: 18px;
+        color: #fff;
+      }
+
+      /* Contact section styles */
+      .contact {
+        background-color: #111;
+        padding: 80px 0;
+      }
+
+      .contact-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .contact h2 {
+        font-size: 36px;
+        color: #44ff00;
+        margin-bottom: 20px;
+      }
+
+      .contact p {
+        font-size: 18px;
+        color: #fff;
+        margin-bottom: 40px;
+      }
+
+      /* Footer styles */
+      footer {
+        background-color: #0b0b0b;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      footer p {
+        color: #fff;
+        font-size: 14px;
+      }
+
+      /* Responsive design */
+      @media screen and (max-width: 768px) {
         .nav-links {
-            list-style: none;
-            display: flex;
+          flex-direction: column;
+          align-items: center;
+          background-color: rgba(0, 0, 0, 0.7);
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 100vh;
+          width: 100%;
+          display: none;
+          z-index: 1000;
+          padding-top: 80px;
+        }
+
+        .nav-links.active {
+          display: flex;
         }
 
         .nav-links li {
-            margin: 0 20px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #44ff00;
-        }
-
-        /* Hero section styles */
-        .hero {
-            background-image: url('https://wallpaperaccess.com/full/1398314.jpg'); /* Replace with your background image */
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 800px;
+          margin: 20px 0;
         }
 
         .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
+          font-size: 36px;
         }
 
         .hero p {
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #20eb1cc2;
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #33cc00; /* Slightly darker green on hover */
-        }
-
-        /* About section styles */
-        .about {
-            background-color: #0b0b1ac9; /* Dark background color */
-            padding: 80px 0;
-        }
-
-        .about-content {
-            
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about h2 {
-            font-size: 36px;
-            color: #44ff00;
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            font-size: 18px;
-            color: #fff;
-        }
-
-        /* Services section styles */
-        .services {
-            background-image: url('https://history-computer.com/wp-content/uploads/2022/05/metaverse-vs-virtual-reality.jpg'); /* Replace with your background image */
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background-color: #181a2e;
-            padding: 80px 0;
-        }
-
-        .services-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+          font-size: 16px;
+          margin-bottom: 30px;
         }
 
         .service-card {
-            background-color: #222;
-            padding: 30px;
-            border-radius: 10px;
-            margin: 20px;
-            text-align: center;
-            transition: transform 0.3s ease;
+          flex: 1;
+          margin: 10px;
         }
+      }
 
-        .service-card:hover {
-            transform: scale(1.05);
+      /* Fluid animations (you can add your animations here) */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
         }
-
-        .service-card h3 {
-            font-size: 24px;
-            color: #44ff00;
-            margin-bottom: 10px;
+        to {
+          opacity: 1;
         }
+      }
 
-        .service-card p {
-            font-size: 18px;
-            color: #fff;
-        }
-
-        /* Contact section styles */
-        .contact {
-            background-color: #111;
-            padding: 80px 0;
-        }
-
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .contact h2 {
-            font-size: 36px;
-            color: #44ff00;
-            margin-bottom: 20px;
-        }
-
-        .contact p {
-            font-size: 18px;
-            color: #fff;
-            margin-bottom: 40px;
-        }
-
-        /* Footer styles */
-        footer {
-            background-color: #0b0b0b;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        footer p {
-            color: #fff;
-            font-size: 14px;
-        }
-
-        /* Responsive design */
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-                background-color: rgba(0, 0, 0, 0.7);
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                height: 100vh;
-                width: 100%;
-                display: none;
-                z-index: 1000;
-                padding-top: 80px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                margin: 20px 0;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .hero p {
-                font-size: 16px;
-                margin-bottom: 30px;
-            }
-
-            .service-card {
-                flex: 1;
-                margin: 10px;
-            }
-        }
-        
-        /* Fluid animations (you can add your animations here) */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Add your animations as needed */
+      /* Add your animations as needed */
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="logo">
-                <h1>Verchool.</h1>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <div class="logo">
+          <h1>Verchool.</h1>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <h1>Explore the Future with Verchool.</h1>
-            <p>Your gateway to VR, AR, 3D, AI, and ML innovation.</p>
-            <a href="https://redirect.verchool.online/SSMTest" class="cta-button">Join Our Boardroom</a>
-        </div>
+      <div class="hero-content">
+        <h1>Explore the Future with Verchool.</h1>
+        <p>Your gateway to VR, AR, 3D, AI, and ML innovation.</p>
+        <!-- the button -->
+        <!-- <a onclick="myFunction()" class="cta-button">Join Boardroom</a> -->
+        <button onclick="myFunction()" class="cta-button">
+          Join Boardroom
+        </button>
+        <!-- <div id="loadingIndicator" style="display: none">Redirecting...</div> -->
+      </div>
     </section>
 
-<section id="about" class="about">
-        <div class="about-content">
-            <h2>About Us</h2>
-            <p>We are a cutting-edge technology company at the forefront of VR, AR, 3D virtual environments, AI, and ML. Our mission is to shape the future of immersive experiences and artificial intelligence.</p>
-        </div>
+    <section id="about" class="about">
+      <div class="about-content">
+        <h2>About Us</h2>
+        <p>
+          We are a cutting-edge technology company at the forefront of VR, AR,
+          3D virtual environments, AI, and ML. Our mission is to shape the
+          future of immersive experiences and artificial intelligence.
+        </p>
+      </div>
     </section>
 
     <section id="services" class="services">
-        <div class="services-content">
-            <h2>Our Services</h2>
-            <div class="service-card">
-                <h3>Virtual Reality</h3>
-                <p>Immerse yourself in virtual worlds like never before.</p>
-            </div>
-            <div class="service-card">
-                <h3>Augmented Reality</h3>
-                <p>Enhance your reality with augmented experiences.</p>
-            </div>
-            <div class="service-card">
-                <h3>3D Environments</h3>
-                <p>Step into 3D spaces that feel real.</p>
-            </div>
-            <div class="service-card">
-                <h3>AI & ML</h3>
-                <p>Unlock the power of artificial intelligence and machine learning.</p>
-            </div>
+      <div class="services-content">
+        <h2>Our Services</h2>
+        <div class="service-card">
+          <h3>Virtual Reality</h3>
+          <p>Immerse yourself in virtual worlds like never before.</p>
         </div>
+        <div class="service-card">
+          <h3>Augmented Reality</h3>
+          <p>Enhance your reality with augmented experiences.</p>
+        </div>
+        <div class="service-card">
+          <h3>3D Environments</h3>
+          <p>Step into 3D spaces that feel real.</p>
+        </div>
+        <div class="service-card">
+          <h3>AI & ML</h3>
+          <p>
+            Unlock the power of artificial intelligence and machine learning.
+          </p>
+        </div>
+      </div>
     </section>
 
     <section id="contact" class="contact">
-        <div class="contact-content">
-            <h2>Contact Us</h2>
-            <p>Ready to embark on a journey into the future with Verchool? Reach out to us today.</p>
-            <a href="mailto:info@Verchool.com" class="cta-button">Contact Us</a>
-        </div>
+      <div class="contact-content">
+        <h2>Contact Us</h2>
+        <p>
+          Ready to embark on a journey into the future with Verchool? Reach out
+          to us today.
+        </p>
+        <a href="mailto:info@Verchool.com" class="cta-button">Contact Us</a>
+      </div>
     </section>
 
     <footer>
-        <p>&copy; 2023 Verchool. All rights reserved.</p>
+      <p>&copy; 2023 Verchool. All rights reserved.</p>
     </footer>
-</body>
+
+    <script>
+      function myFunction() {
+        // Display loading indicator
+        //document.getElementById("loadingIndicator").style.display = "block";
+
+        // // Trigger the Lambda function
+        fetch("https://redirect.verchool.online/SSMTest", {
+          method: "GET", // or "GET" based on your API Gateway configuration
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            //     // Hide loading indicator
+            document.getElementById("loadingIndicator").style.display = "none";
+
+            //     // Handle the JSON response
+            if (data && data.newURL) {
+              //     //   // Log the new URL
+              console.log("New URL:", data.newURL);
+              
+              console.log(data);
+
+              //     //   // Redirect the user after a delay of 5 seconds
+              setTimeout(function () {
+
+
+                location.href=data.newURL;
+              }, 3000);
+
+            } else {
+              console.error("Invalid or missing newURL in the response");
+            }
+            // location.replace("https://redirect.verchool.online/SSMTest");
+          })
+
+          .catch((error) => {
+            //     // Handle any errors
+            console.error("Error fetching data:", error);
+            document.getElementById("loadingIndicator").style.display = "none";
+          });
+      }
+    </script>
+  </body>
 </html>
