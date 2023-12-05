@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verchool - Shaping the Future</title>
+    <style>
+      /* Reset some default styles */
+      body,
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Define global styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #000000; /* Dark background color */
+        color: #fff; /* Text color */
+      }
+
+      /* Header styles */
+      header {
+        background-color: transparent;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .logo h1 {
+        font-size: 32px;
+        color: #44ff00; /* Futuristic green color */
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 0 20px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        color: #44ff00;
+      }
+
+      /* Hero section styles */
+      .hero {
+        background-image: url("https://wallpaperaccess.com/full/1398314.jpg"); /* Replace with your background image */
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .hero-content {
+        max-width: 800px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 18px;
+        margin-bottom: 40px;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 15px 30px;
+        background-color: #20eb1cc2;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .cta-button:hover {
+        background-color: #33cc00; /* Slightly darker green on hover */
+      }
+
+      /* About section styles */
+      .about {
+        background-color: #0b0b1ac9; /* Dark background color */
+        padding: 80px 0;
+      }
+
+      .about-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .about h2 {
+        font-size: 36px;
+        color: #44ff00;
+        margin-bottom: 20px;
+      }
+
+      .about p {
+        font-size: 18px;
+        color: #fff;
+      }
+
+      /* Services section styles */
+      .services {
+        background-image: url("https://history-computer.com/wp-content/uploads/2022/05/metaverse-vs-virtual-reality.jpg"); /* Replace with your background image */
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: #181a2e;
+        padding: 80px 0;
+      }
+
+      .services-content {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+      }
+
+      .service-card {
+        background-color: #222;
+        padding: 30px;
+        border-radius: 10px;
+        margin: 20px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .service-card:hover {
+        transform: scale(1.05);
+      }
+
+      .service-card h3 {
+        font-size: 24px;
+        color: #44ff00;
+        margin-bottom: 10px;
+      }
+
+      .service-card p {
+        font-size: 18px;
+        color: #fff;
+      }
+
+      /* Contact section styles */
+      .contact {
+        background-color: #111;
+        padding: 80px 0;
+      }
+
+      .contact-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .contact h2 {
+        font-size: 36px;
+        color: #44ff00;
+        margin-bottom: 20px;
+      }
+
+      .contact p {
+        font-size: 18px;
+        color: #fff;
+        margin-bottom: 40px;
+      }
+
+      /* Footer styles */
+      footer {
+        background-color: #0b0b0b;
+        padding: 20px 0;
+        text-align: center;
+      }
+
+      footer p {
+        color: #fff;
+        font-size: 14px;
+      }
+
+      #url {
+        padding: 20px 0;
+        margin-top: 10px;
+        border: #fff;
+        background-color: rgba(5, 9, 52, 0.488);
+        font-size: medium;
+      }
+
+      /* Responsive design */
+      @media screen and (max-width: 768px) {
+        .nav-links {
+          flex-direction: column;
+          align-items: center;
+          background-color: rgba(0, 0, 0, 0.7);
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 100vh;
+          width: 100%;
+          display: none;
+          z-index: 1000;
+          padding-top: 80px;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links li {
+          margin: 20px 0;
+        }
+
+        .hero h1 {
+          font-size: 36px;
+        }
+
+        .hero p {
+          font-size: 16px;
+          margin-bottom: 30px;
+        }
+
+        .service-card {
+          flex: 1;
+          margin: 10px;
+        }
+      }
+
+      /* Fluid animations (you can add your animations here) */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Add your animations as needed */
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">
+          <h1>Verchool.</h1>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Explore the Future with Verchool.</h1>
+        <p>Your gateway to VR, AR, 3D, AI, and ML innovation.</p>
+        <!-- the button -->
+        <a onclick="myFunction()" class="cta-button">Join Boardroom</a>
+        <div id="url" style="display: none">
+          <div id="copy" onclick="copyText()" style="display: block">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="26"
+              width="24"
+              viewBox="0 0 448 512"
+            >
+              <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+              <path
+                opacity="1"
+                fill="#ffff"
+                d="M208 0H332.1c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9V336c0 26.5-21.5 48-48 48H208c-26.5 0-48-21.5-48-48V48c0-26.5 21.5-48 48-48zM48 128h80v64H64V448H256V416h64v48c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V176c0-26.5 21.5-48 48-48z"
+              />
+            </svg>
+          </div>
+        </div>
+        <!-- <button onclick="myFunction()" class="cta-button"> 
+          Join Boardroom
+        </button> -->
+        <!-- <div id="loadingIndicator" style="display: none">Redirecting...</div> -->
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-content">
+        <h2>About Us</h2>
+        <p>
+          We are a cutting-edge technology company at the forefront of VR, AR,
+          3D virtual environments, AI, and ML. Our mission is to shape the
+          future of immersive experiences and artificial intelligence.
+        </p>
+      </div>
+    </section>
+
+    <section id="services" class="services">
+      <div class="services-content">
+        <h2>Our Services</h2>
+        <div class="service-card">
+          <h3>Virtual Reality</h3>
+          <p>Immerse yourself in virtual worlds like never before.</p>
+        </div>
+        <div class="service-card">
+          <h3>Augmented Reality</h3>
+          <p>Enhance your reality with augmented experiences.</p>
+        </div>
+        <div class="service-card">
+          <h3>3D Environments</h3>
+          <p>Step into 3D spaces that feel real.</p>
+        </div>
+        <div class="service-card">
+          <h3>AI & ML</h3>
+          <p>
+            Unlock the power of artificial intelligence and machine learning.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="contact-content">
+        <h2>Contact Us</h2>
+        <p>
+          Ready to embark on a journey into the future with Verchool? Reach out
+          to us today.
+        </p>
+        <a href="mailto:info@Verchool.com" class="cta-button">Contact Us</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 Verchool. All rights reserved.</p>
+    </footer>
+
+    <script>
+      let textToCopy;
+
+      function myFunction() {
+        // location.replace(
+        //   "https://egxyi20zja.execute-api.us-east-1.amazonaws.com/dev/SSM"
+        // );
+        // Display loading indicator
+        //document.getElementById("loadingIndicator").style.display = "block";
+
+        // Trigger the Lambda function
+        fetch(
+          "https://egxyi20zja.execute-api.us-east-1.amazonaws.com/dev/SSM",
+          {
+            method: "GET", // or "GET" based on your API Gateway configuration
+          }
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            //     // Hide loading indicator
+            //document.getElementById("loadingIndicator").style.display = "none";
+
+            //     // Handle the JSON response
+            if (data && data.newURL) {
+              //     //   // Log the new URL
+              //https://verchool.online/{randomLocation}/?hoveringMouse=true
+              console.log("New URL:", data.newURL);
+              textToCopy = data.newURL;
+              //console.log(data);
+
+              //     //   // Redirect the user after a delay of 5 seconds
+              // setTimeout(function () {
+
+              // }, 3000);
+              //location.href = data.newURL;
+              //JSON.stringify(data.newURL);
+              document.getElementById("url").style.display = "block";
+              document.getElementById("copy").style.display = "block";
+              document.getElementById("url").innerHTML = data.newURL;
+              // const newLink = document.createElement("a");
+              // newLink.href = data.newURL;
+              // newLink.target = "_blank";
+              // document.getElementById('url').appendChild(newLink);
+            } else {
+              console.error("Invalid or missing newURL in the response");
+            }
+          })
+
+          // location.replace("https://redirect.verchool.online/SSMTest");
+          // location.replace(" https://egxyi20zja.execute-api.us-east-1.amazonaws.com/dev/SSMTest");
+
+          .catch((error) => {
+            // Handle any errors
+            console.error("Error fetching data:", error);
+            // document.getElementById("loadingIndicator").style.display = "none";
+          });
+      }
+      function copyText() {
+        navigator.clipboard
+          .writeText(textToCopy)
+          .then(() => {
+            alert("Text copied to clipboard: " + textToCopy);
+          })
+          .catch((err) => {
+            console.error("err", err);
+          });
+      }
+    </script>
+  </body>
+</html>
