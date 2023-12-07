@@ -18,7 +18,7 @@
       /* Define global styles */
       body {
         font-family: Arial, sans-serif;
-        background-color: #000000; /* Dark background color */
+        background-color: #181d2e; /* Dark background color */
         color: #fff; /* Text color */
       }
 
@@ -66,7 +66,7 @@
 
       /* Hero section styles */
       .hero {
-        background-image: url("https://wallpaperaccess.com/full/1398314.jpg"); /* Replace with your background image */
+        background-image: url('https://wallpaperaccess.com/full/1398314.jpg'); /* Replace with your background image */
         background-size: cover;
         background-position: center;
         height: 100vh;
@@ -100,6 +100,7 @@
         border-radius: 5px;
         transition: background-color 0.3s ease;
         cursor: pointer;
+        margin-bottom: 10px;
       }
 
       .cta-button:hover {
@@ -131,7 +132,7 @@
 
       /* Services section styles */
       .services {
-        background-image: url("https://history-computer.com/wp-content/uploads/2022/05/metaverse-vs-virtual-reality.jpg"); /* Replace with your background image */
+        background-image: url('https://history-computer.com/wp-content/uploads/2022/05/metaverse-vs-virtual-reality.jpg'); /* Replace with your background image */
         background-size: cover;
         background-position: center;
         height: 100vh;
@@ -283,7 +284,9 @@
         <h1>Explore the Future with Verchool.</h1>
         <p>Your gateway to VR, AR, 3D, AI, and ML innovation.</p>
         <!-- the button -->
-        <a onclick="myFunction()" class="cta-button">Join Boardroom</a>
+        <button onclick="myFunction()" id="joinBtn" class="cta-button">
+          Join Boardroom
+        </button>
         <!-- <button onclick="myFunction()" class="cta-button"> 
           Join Boardroom
         </button> -->
@@ -342,6 +345,34 @@
     </footer>
 
     <script>
+      // READ HERE
+      //This is testing function for copying the url. change the function onclick on joinbtn. use copyFunction or myFunction on joinBtn
+      function copyFunction() {
+        const joinButton = document.getElementById('joinBtn');
+        joinButton.disabled = true;
+        const inputElement = document.createElement('input');
+        inputElement.style.display = 'block';
+        inputElement.style.marginTop = '10px';
+        inputElement.style.margin = 'auto';
+        inputElement.style.outline = 'none';
+        inputElement.type = 'text';
+        inputElement.value = 'aditya';
+        inputElement.style.background = '#181a2e';
+        inputElement.style.border = 'none';
+        inputElement.style.borderRadius = '15px';
+        inputElement.style.color = '#fff';
+        inputElement.style.cursor = 'pointer';
+        inputElement.style.padding = '20px';
+        inputElement.readOnly = true;
+        inputElement.addEventListener('click', function () {
+          this.select();
+          document.execCommand('copy');
+          alert('URL copied to clipboard');
+        });
+
+        const heroSection = document.querySelector('.hero-content');
+        heroSection.appendChild(inputElement);
+      }
       function myFunction() {
         // location.replace(
         //   "https://egxyi20zja.execute-api.us-east-1.amazonaws.com/dev/SSM"
@@ -350,10 +381,12 @@
         //document.getElementById("loadingIndicator").style.display = "block";
 
         // Trigger the Lambda function
+        const joinButton = document.getElementById('joinBtn');
+        joinButton.disabled = true;
         fetch(
-          "https://egxyi20zja.execute-api.us-east-1.amazonaws.com/dev/SSM",
+          'https://egxyi20zja.execute-api.us-east-1.amazonaws.com/dev/SSM',
           {
-            method: "GET", // or "GET" based on your API Gateway configuration
+            method: 'GET', // or "GET" based on your API Gateway configuration
           }
         )
           .then((response) => response.json())
@@ -364,17 +397,36 @@
             //     // Handle the JSON response
             if (data && data.newURL) {
               //     //   // Log the new URL
-              console.log("New URL:", data.newURL);
+              console.log('New URL:', data.newURL);
 
-              //console.log(data);
+              // location.href = data.newURL;
 
-              //     //   // Redirect the user after a delay of 5 seconds
-              // setTimeout(function () {
+              const joinButton = document.getElementById('joinBtn');
+              joinButton.disabled = true;
+              const inputElement = document.createElement('input');
+              inputElement.style.display = 'block';
+              inputElement.style.marginTop = '10px';
+              inputElement.style.margin = 'auto';
+              inputElement.style.outline = 'none';
+              inputElement.type = 'text';
+              inputElement.value = data.newURL;
+              inputElement.style.background = '#181a2e';
+              inputElement.style.border = 'none';
+              inputElement.style.borderRadius = '15px';
+              inputElement.style.color = '#fff';
+              inputElement.style.cursor = 'pointer';
+              inputElement.style.padding = '20px';
+              inputElement.readOnly = true;
+              inputElement.addEventListener('click', function () {
+                this.select();
+                document.execCommand('copy');
+                alert('URL copied to clipboard');
+              });
 
-              // }, 3000);
-              location.href = data.newURL;
+              const heroSection = document.querySelector('.hero-content');
+              heroSection.appendChild(inputElement);
             } else {
-              console.error("Invalid or missing newURL in the response");
+              console.error('Invalid or missing newURL in the response');
             }
           })
 
@@ -383,8 +435,8 @@
 
           .catch((error) => {
             // Handle any errors
-            console.error("Error fetching data:", error);
-           // document.getElementById("loadingIndicator").style.display = "none";
+            console.error('Error fetching data:', error);
+            // document.getElementById("loadingIndicator").style.display = "none";
           });
       }
     </script>
