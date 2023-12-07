@@ -391,10 +391,6 @@
         )
           .then((response) => response.json())
           .then((data) => {
-            //     // Hide loading indicator
-            //document.getElementById("loadingIndicator").style.display = "none";
-
-            //     // Handle the JSON response
             if (data && data.newURL) {
               //     //   // Log the new URL
               console.log('New URL:', data.newURL);
