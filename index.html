@@ -369,110 +369,14 @@
 
 
     function myFunction() {
-      fetch("https://egxyi20zja.execute-api.us-east-1.amazonaws.com/dev/SSM", {
-        method: "GET",
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Internal Server Error");
-          }
-          return response.json();
-        })
-        .then((data) => {
-          if (data && data.newURL) {
-            textToCopy = data.newURL;
-            document.getElementById("url").style.display = "block";
-            document.getElementById("url").innerHTML = `<span id="copy">${data.newURL}</span>`;
-            // Add event listener to the dynamically created "copy" element
-            document.getElementById("copy").addEventListener("click", copyText);
-          } else {
-            console.error("Invalid or missing data in the response");
-          }
-        })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-          // Display a different message in case of an error
-          document.getElementById("url").style.display = "block";
-          document.getElementById("url").innerHTML = "Boardroom is currently fully occupied. Request the host for a new admission.";
-        });
+      //Direct Redirect
+      location.replace(
+        "https://egxyi20zja.execute-api.us-east-1.amazonaws.com/dev/SSMTest"
+      );
+
+      //Redirect via json response
+      
     }
-
-    function copyText() {
-      navigator.clipboard
-        .writeText(textToCopy)
-        .then(() => {
-          alert("Text copied to clipboard: " + textToCopy);
-        })
-        .catch((err) => {
-          console.error("Error copying text:", err);
-        });
-    }
-    // location.replace(
-    //   "https://egxyi20zja.execute-api.us-east-1.amazonaws.com/dev/SSM"
-    // );
-    // Display loading indicator
-    //document.getElementById("loadingIndicator").style.display = "block";
-
-    // Trigger the Lambda function
-    //   fetch(
-    //     "https://egxyi20zja.execute-api.us-east-1.amazonaws.com/dev/SSM",
-    //     {
-    //       method: "GET", // or "GET" based on your API Gateway configuration
-    //     }
-    //   )
-    //     .then((response) => response.json())
-    //     .then((data) => {
-    //       //     // Hide loading indicator
-    //       //document.getElementById("loadingIndicator").style.display = "none";
-
-    //       //     // Handle the JSON response
-    //       if (data && data.newURL) {
-    //         //     //   // Log the new URL
-    //         //https://verchool.online/{randomLocation}/?hoveringMouse=true
-    //         console.log("New URL:", data.newURL);
-    //         textToCopy = data.newURL;
-    //         //console.log(data);
-
-    //         //     //   // Redirect the user after a delay of 5 seconds
-    //         // setTimeout(function () {
-
-    //         // }, 3000);
-    //         //location.href = data.newURL;
-    //         //JSON.stringify(data.newURL);
-    //         document.getElementById("url").style.display = "block";
-    //         document.getElementById("copy").style.display = "block";
-    //         document.getElementById("url").innerHTML = data.newURL;
-
-
-
-    //         // const newLink = document.createElement("a");
-    //         // newLink.href = data.newURL;
-    //         // newLink.target = "_blank";
-    //         // document.getElementById('url').appendChild(newLink);
-    //       } else {
-    //         console.error("Invalid or missing newURL in the response");
-    //       }
-    //     })
-
-    //     // location.replace("https://redirect.verchool.online/SSMTest");
-    //     // location.replace(" https://egxyi20zja.execute-api.us-east-1.amazonaws.com/dev/SSMTest");
-
-    //     .catch((error) => {
-    //       // Handle any errors
-    //       console.error("Error fetching data:", error);
-    //       // document.getElementById("loadingIndicator").style.display = "none";
-    //     });
-    //}
-    // function copyText() {
-    //   navigator.clipboard
-    //     .writeText(textToCopy)
-    //     .then(() => {
-    //       alert("Text copied to clipboard: " + textToCopy);
-    //     })
-    //     .catch((err) => {
-    //       console.error("err", err);
-    //     });
-    // }
   </script>
 </body>
 
