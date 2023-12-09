@@ -1,76 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page Not Found</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading resources...</title>
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #0e1a2a; /* Neon Dark Blue Background */
-            background-image: url('https://verchool.com/wp-content/uploads/2023/07/BG_7-scaled.jpg'); /* Replace with your pattern image */
-            color: #fff; /* White Text */
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            
+      body {
+        font-family: 'Arial', sans-serif;
+        /* background-image: url('https://verchool.com/wp-content/uploads/2023/07/BG_7-scaled.jpg'); */
+        background-color: #000;
+        object-fit: cover;
+        background-position: center;
+        /* background-color: #0e1a2a; */
+        /* Neon Dark Blue Background */
+        /* Replace with your pattern image */
+        color: #fff;
+        /* White Text */
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .logo {
+        width: 200px;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      h1 {
+        color: #4caf50;
+        /* Neon Green */
+        font-size: 2em;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+
+      .button-container {
+        display: flex;
+        gap: 20px;
+        margin-top: 25px;
+      }
+
+      .reload-button,
+      .home-button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 1em;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .reload-button {
+        background-color: #4caf50;
+        /* Neon Green */
+      }
+
+      .home-button {
+        background-color: #2196f3;
+        /* Neon Dark Blue */
+      }
+
+      .loader {
+        --path: #2f3545;
+        --dot: #5628ee;
+        --duration: 3s;
+        width: 44px;
+        height: 44px;
+        position: relative;
+      }
+
+      .loader:before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        position: absolute;
+        display: block;
+        background: var(--dot);
+        top: 37px;
+        left: 19px;
+        transform: translate(-18px, -18px);
+        animation: dotRect var(--duration)
+          cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+      }
+
+      .loader svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .loader svg rect,
+      .loader svg polygon,
+      .loader svg circle {
+        fill: none;
+        stroke: var(--path);
+        stroke-width: 10px;
+        stroke-linejoin: round;
+        stroke-linecap: round;
+      }
+
+      .loader svg polygon {
+        stroke-dasharray: 145 76 145 76;
+        stroke-dashoffset: 0;
+        animation: pathTriangle var(--duration)
+          cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+      }
+
+      .loader svg rect {
+        stroke-dasharray: 192 64 192 64;
+        stroke-dashoffset: 0;
+        animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+      }
+
+      .loader svg circle {
+        stroke-dasharray: 150 50 150 50;
+        stroke-dashoffset: 75;
+        animation: pathCircle var(--duration)
+          cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+      }
+
+      .loader.triangle {
+        width: 48px;
+      }
+
+      .loader.triangle:before {
+        left: 21px;
+        transform: translate(-10px, -18px);
+        animation: dotTriangle var(--duration)
+          cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
+      }
+
+      @keyframes pathTriangle {
+        33% {
+          stroke-dashoffset: 74;
         }
 
-        .logo {
-            width: 200px;
-            height: auto;
-            margin-bottom: 10px;
+        66% {
+          stroke-dashoffset: 147;
         }
 
-        h1 {
-            color: #4CAF50; /* Neon Green */
-            font-size: 2em;
-            margin-bottom: 10px;
+        100% {
+          stroke-dashoffset: 221;
+        }
+      }
+
+      @keyframes dotTriangle {
+        33% {
+          transform: translate(0, 0);
         }
 
-        p {
-            font-size: 1.2em;
-            margin-bottom: 20px;
+        66% {
+          transform: translate(10px, -18px);
         }
 
-        .button-container {
-            display: flex;
-            gap: 20px;
+        100% {
+          transform: translate(-10px, -18px);
+        }
+      }
+
+      @keyframes pathRect {
+        25% {
+          stroke-dashoffset: 64;
         }
 
-        .reload-button, .home-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1em;
-            text-align: center;
-            text-decoration: none;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        50% {
+          stroke-dashoffset: 128;
         }
 
-        .reload-button {
-            background-color: #4CAF50; /* Neon Green */
+        75% {
+          stroke-dashoffset: 192;
         }
 
-        .home-button {
-            background-color: #2196F3; /* Neon Dark Blue */
+        100% {
+          stroke-dashoffset: 256;
         }
+      }
+
+      @keyframes dotRect {
+        25% {
+          transform: translate(0, 0);
+        }
+
+        50% {
+          transform: translate(18px, -18px);
+        }
+
+        75% {
+          transform: translate(0, -36px);
+        }
+
+        100% {
+          transform: translate(-18px, -18px);
+        }
+      }
+
+      @keyframes pathCircle {
+        25% {
+          stroke-dashoffset: 125;
+        }
+
+        50% {
+          stroke-dashoffset: 175;
+        }
+
+        75% {
+          stroke-dashoffset: 225;
+        }
+
+        100% {
+          stroke-dashoffset: 275;
+        }
+      }
+
+      .loader {
+        display: inline-block;
+        margin: 0 16px;
+      }
+
+      #outline {
+        stroke-dasharray: 2.42777px, 242.77666px;
+        stroke-dashoffset: 0;
+        -webkit-animation: anim 1.6s linear infinite;
+        animation: anim 1.6s linear infinite;
+      }
+
+      @-webkit-keyframes anim {
+        12.5% {
+          stroke-dasharray: 33.98873px, 242.77666px;
+          stroke-dashoffset: -26.70543px;
+        }
+
+        43.75% {
+          stroke-dasharray: 84.97183px, 242.77666px;
+          stroke-dashoffset: -84.97183px;
+        }
+
+        100% {
+          stroke-dasharray: 2.42777px, 242.77666px;
+          stroke-dashoffset: -240.34889px;
+        }
+      }
+
+      @keyframes anim {
+        12.5% {
+          stroke-dasharray: 33.98873px, 242.77666px;
+          stroke-dashoffset: -26.70543px;
+        }
+
+        43.75% {
+          stroke-dasharray: 84.97183px, 242.77666px;
+          stroke-dashoffset: -84.97183px;
+        }
+
+        100% {
+          stroke-dasharray: 2.42777px, 242.77666px;
+          stroke-dashoffset: -240.34889px;
+        }
+      }
     </style>
-</head>
-<body>
-    <img class="logo" src="https://verchool.com/wp-content/uploads/2023/07/Image_6-1024x726.png" alt="Company Logo">
-    <h1>404 - Page Not Found</h1>
-    <p>Oops! It seems like you've ventured into uncharted territories. The page you are looking for might be in another dimension.</p>
-    <div class="button-container">
-        <button class="reload-button" onclick="location.reload()">Reload Page</button>
-        <a class="home-button" href="https://verchool.online/">Go to Home</a>
+  </head>
+
+  <body>
+    <div>
+      <svg
+        preserveAspectRatio="xMidYMid meet"
+        viewBox="0 0 187.3 93.7"
+        height="300px"
+        width="400px"
+      >
+        <path
+          d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 				c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z"
+          stroke-miterlimit="10"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="4"
+          fill="none"
+          id="outline"
+          stroke="#44ff00"
+        ></path>
+        <path
+          d="M93.9,46.4c9.3,9.5,13.8,17.9,23.5,17.9s17.5-7.8,17.5-17.5s-7.8-17.6-17.5-17.5c-9.7,0.1-13.3,7.2-22.1,17.1 				c-8.9,8.8-15.7,17.9-25.4,17.9s-17.5-7.8-17.5-17.5s7.8-17.5,17.5-17.5S86.2,38.6,93.9,46.4z"
+          stroke-miterlimit="10"
+          stroke-linejoin="round"
+          stroke-linecap="round"
+          stroke-width="4"
+          stroke="#44ff00"
+          fill="none"
+          opacity="0.05"
+          id="outline-bg"
+        ></path>
+      </svg>
     </div>
-</body>
+    <h1>Hold tight! Your Boardroom resources are getting ready...</h1>
+    <!-- <p>Oops! It seems like you've ventured into uncharted territories. The page you are looking for might be in another dimension.</p> -->
+
+    <!-- SCRIPT  -->
+    <script>
+      //auto page reload
+      window.setTimeout(function () {
+        window.location.reload();
+      }, 3000);
+    </script>
+  </body>
 </html>
